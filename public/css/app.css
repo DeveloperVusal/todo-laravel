@@ -1,0 +1,45 @@
+.todo-sidebar {
+    width: 24%;
+    height: 90vh;
+    border-right: 2px solid #ddd;
+    padding-right: 10px;
+}
+.todo-content {
+    width: 76%;
+    height: 90vh;
+    padding-left: 10px;
+}
+
+.modal-dialog--width {
+    max-width: 650px;
+}
+.form-control--min-height {
+    height: 50px;
+    min-height: 50px;
+}
+.form-control--max-height {
+    max-height: 170px;
+}
+
+.btn-none {
+    color: #666;
+    transition: color 0.3s;
+}
+.btn-none:hover {
+    color: #555;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.btn-icon-padding {
+    padding-top: 5px;
+    padding-bottom: 7.5px;
+}
+
+ul .nav-item {
+    margin-bottom: 0.6rem;
+}
+ul .nav-item .nav-link {
+    padding: 0px;
+    padding-right: .5rem;
+}
