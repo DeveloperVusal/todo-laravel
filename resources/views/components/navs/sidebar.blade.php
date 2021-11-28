@@ -7,7 +7,7 @@
                 </a>
 
                 <div class="d-inline d-flex justify-content-between align-items-center">
-                    <button name="btn-edit-list" id="rm-edit-{{ $item->id }}" class="btn btn-none p-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Редактировать лист">
+                    <button name="btn-ed-list" id="rm-ed-{{ $item->id }}" class="btn btn-none p-0" data-bs-toggle="tooltip" data-bs-placement="right" title="Редактировать лист">
                         @include('components.ui.icons.pencil-fill')
                     </button>
 

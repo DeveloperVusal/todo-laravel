@@ -19,7 +19,7 @@ use App\Http\Controllers\TaskController;
 
 // For JS Requests
 Route::post('/list/create', [ListController::class, 'create']);
-// Route::post('/list/save', [ListController::class, 'save']);
+Route::post('/list/save', [ListController::class, 'save']);
 Route::post('/list/remove', [ListController::class, 'remove']);
 
 Route::post('/task/add', [TaskController::class, 'add']);

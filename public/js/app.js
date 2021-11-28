@@ -2162,12 +2162,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _list_remove__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list-remove */ "./resources/js/components/buttons/list-remove.js");
-/* harmony import */ var _task_completed__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./task-completed */ "./resources/js/components/buttons/task-completed.js");
-/* harmony import */ var _task_remove__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task-remove */ "./resources/js/components/buttons/task-remove.js");
+/* harmony import */ var _list_save__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list-save */ "./resources/js/components/buttons/list-save.js");
+/* harmony import */ var _task_completed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task-completed */ "./resources/js/components/buttons/task-completed.js");
+/* harmony import */ var _task_remove__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./task-remove */ "./resources/js/components/buttons/task-remove.js");
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([_list_remove__WEBPACK_IMPORTED_MODULE_0__.list_remove, _task_remove__WEBPACK_IMPORTED_MODULE_2__.task_remove, _task_completed__WEBPACK_IMPORTED_MODULE_1__.task_completed]);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([_list_remove__WEBPACK_IMPORTED_MODULE_0__.list_remove, _list_save__WEBPACK_IMPORTED_MODULE_1__.list_save, _task_remove__WEBPACK_IMPORTED_MODULE_3__.task_remove, _task_completed__WEBPACK_IMPORTED_MODULE_2__.task_completed]);
 
 /***/ }),
 
@@ -2237,6 +2239,88 @@ var list_remove = function list_remove() {
                 }
 
               case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function (_x) {
+        return _ref.apply(this, arguments);
+      };
+    }());
+  }
+};
+
+/***/ }),
+
+/***/ "./resources/js/components/buttons/list-save.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/buttons/list-save.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "list_save": () => (/* binding */ list_save)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _requests_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../requests/index */ "./resources/js/requests/index.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var list_save = function list_save() {
+  var btns = document.querySelectorAll('button[name=btn-ed-list]');
+
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(evt) {
+        var el, elNavLink, name, attrId, formData, response, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                el = evt.target;
+
+                if (el.tagName.toLowerCase() != 'button') {
+                  el = el.closest('button[name=btn-ed-list]');
+                }
+
+                elNavLink = el.parentNode.previousElementSibling;
+                name = prompt('Название списка', elNavLink.innerText);
+                attrId = el.getAttribute('id');
+                attrId = parseInt(attrId.split('-')[2]);
+
+                if (!attrId) {
+                  _context.next = 13;
+                  break;
+                }
+
+                formData = {
+                  id: attrId,
+                  name: name
+                };
+                _context.next = 10;
+                return _requests_index__WEBPACK_IMPORTED_MODULE_1__.$api.list_save(formData);
+
+              case 10:
+                response = _context.sent;
+                data = response.data;
+
+                if (data.status === 'success') {
+                  window.location.reload();
+                } else {
+                  alert(data.message);
+                }
+
+              case 13:
               case "end":
                 return _context.stop();
             }
@@ -2837,9 +2921,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _list_create__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list-create */ "./resources/js/requests/list-create.js");
 /* harmony import */ var _list_remove__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list-remove */ "./resources/js/requests/list-remove.js");
-/* harmony import */ var _task_add__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task-add */ "./resources/js/requests/task-add.js");
-/* harmony import */ var _task_completed__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./task-completed */ "./resources/js/requests/task-completed.js");
-/* harmony import */ var _task_remove__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./task-remove */ "./resources/js/requests/task-remove.js");
+/* harmony import */ var _list_save__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./list-save */ "./resources/js/requests/list-save.js");
+/* harmony import */ var _task_add__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./task-add */ "./resources/js/requests/task-add.js");
+/* harmony import */ var _task_completed__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./task-completed */ "./resources/js/requests/task-completed.js");
+/* harmony import */ var _task_remove__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./task-remove */ "./resources/js/requests/task-remove.js");
+
 
 
 
@@ -2847,10 +2933,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var $api = {
   list_create: _list_create__WEBPACK_IMPORTED_MODULE_0__.api_list_create,
+  list_save: _list_save__WEBPACK_IMPORTED_MODULE_2__.api_list_save,
   list_remove: _list_remove__WEBPACK_IMPORTED_MODULE_1__.api_list_remove,
-  task_add: _task_add__WEBPACK_IMPORTED_MODULE_2__.api_task_add,
-  task_remove: _task_remove__WEBPACK_IMPORTED_MODULE_4__.api_task_remove,
-  task_completed: _task_completed__WEBPACK_IMPORTED_MODULE_3__.api_task_completed
+  task_add: _task_add__WEBPACK_IMPORTED_MODULE_3__.api_task_add,
+  task_remove: _task_remove__WEBPACK_IMPORTED_MODULE_5__.api_task_remove,
+  task_completed: _task_completed__WEBPACK_IMPORTED_MODULE_4__.api_task_completed
 };
 
 /***/ }),
@@ -2963,6 +3050,63 @@ var api_list_remove = /*#__PURE__*/function () {
   }));
 
   return function api_list_remove(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+/***/ }),
+
+/***/ "./resources/js/requests/list-save.js":
+/*!********************************************!*\
+  !*** ./resources/js/requests/list-save.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "api_list_save": () => (/* binding */ api_list_save)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+var api_list_save = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(payload) {
+    var url_req;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            url_req = '/list/save';
+            _context.prev = 1;
+            _context.next = 4;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post(url_req, payload);
+
+          case 4:
+            return _context.abrupt("return", _context.sent);
+
+          case 7:
+            _context.prev = 7;
+            _context.t0 = _context["catch"](1);
+            console.error('Request List Save', _context.t0);
+
+          case 10:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee, null, [[1, 7]]);
+  }));
+
+  return function api_list_save(_x) {
     return _ref.apply(this, arguments);
   };
 }();

@@ -24,10 +24,12 @@
                             @if ($item->is_completed)
                                 <button type="button" name="btn-cp-task" id="rt-id-{{ $item->id }}" class="btn btn-success">Выполнено</button>
                             @else
-                                <button type="button" name="btn-cp-task" id="rm-id-{{ $item->id }}" class="btn btn-primary">Задача выполнена</button>
+                                <button type="button" name="btn-cp-task" id="cp-id-{{ $item->id }}" class="btn btn-primary">Задача выполнена</button>
                             @endif
 
-                            <button type="button" name="btn-rm-task" id="rm-id-{{ $item->id }}" class="btn @if ($item->is_completed) btn-secondary @else btn-danger @endif">Удалить</button>
+                            <button type="button" name="btn-ed-task" id="ed-id-{{ $item->id }}" class="btn btn-secondary">Редактировать</button>
+
+                            <button type="button" name="btn-rm-task" id="rm-id-{{ $item->id }}" class="btn btn-danger">Удалить</button>
                         </div>
                     </div>
                 @endforeach
